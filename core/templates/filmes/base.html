@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Catálogo de Filmes{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'filmes/css/estilo.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>🎬 Catálogo de Filmes</h1>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- O conteúdo específico da página vai aqui -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

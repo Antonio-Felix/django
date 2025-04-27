@@ -1,0 +1,19 @@
+{% extends 'filmes/base.html' %}
+
+{% block title %}Lista de Filmes{% endblock %}
+
+{% block content %}
+    <div class="filmes-container">
+        {% for filme in filmes %}
+            <div class="filme">
+                <!-- A classe "img" já vai aplicar o estilo do CSS -->
+                <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
+                <h2>{{ filme.titulo }}</h2>
+                <p><strong>Ano de Lançamento:</strong> {{ filme.ano_lancamento }}</p>
+                <p>{{ filme.descricao }}</p>
+            </div>
+        {% empty %}
+            <p>Nenhum filme cadastrado ainda.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
