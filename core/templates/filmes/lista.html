@@ -6,14 +6,25 @@
     <div class="filmes-container">
         {% for filme in filmes %}
             <div class="filme">
-                <!-- A classe "img" já vai aplicar o estilo do CSS -->
                 <img src="{{ filme.imagem.url }}" alt="{{ filme.titulo }}">
                 <h2>{{ filme.titulo }}</h2>
-                <p><strong>Ano de Lançamento:</strong> {{ filme.ano_lancamento }}</p>
+                <p><strong>Ano:</strong> {{ filme.ano_lancamento }}</p>
                 <p>{{ filme.descricao }}</p>
             </div>
         {% empty %}
             <p>Nenhum filme cadastrado ainda.</p>
         {% endfor %}
+    </div>
+    <!-- Paginação -->
+    <div class="paginacao">
+        {% if filmes.has_previous %}
+            <a href="?page={{ filmes.previous_page_number }}">⟨ Anterior</a>
+        {% endif %}
+
+        <span>Página {{ filmes.number }} de {{ filmes.paginator.num_pages }}</span>
+
+        {% if filmes.has_next %}
+            <a href="?page={{ filmes.next_page_number }}">Próxima ⟩</a>
+        {% endif %}
     </div>
 {% endblock %}
